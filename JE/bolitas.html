@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jaunita ❤️</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: pink;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+    h1 {
+        font-size: 2.5em;
+        margin-top: 20px;
+        color: red;
+    }
+    #romantico {
+        display: none;
+        margin-top: 20px;
+    }
+    #romantico img {
+        max-width: 90%;
+        height: auto;
+        display: block;
+        margin: auto;
+    }
+    p {
+        font-size: 1.5em;
+        color: #660000;
+        margin: 20px auto;
+        max-width: 800px; 
+        line-height: 1.6;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: darkred;
+    }
+
+    
+    .corazon {
+        position: fixed;
+        bottom: -20px;
+        font-size: 24px;
+        animation: subir 4s linear forwards;
+        z-index: 999;
+    }
+    @keyframes subir {
+        0% { transform: translateY(0) scale(1); opacity: 1; }
+        100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
+    }
+</style>
+</head>
+<body>
+
+<h1>Te amo mi Juanita ❤️</h1>
+
+<button id="btnMostrar">Presionaaa💖</button>
+
+<div id="romantico">
+    <img src="fotoo.jpeg" alt="Nuestra foto">
+    <p>Los dos. Te amo mucho mi amor. Me gusta todo lo eres. Gracias por ser parte de mi vida, eres lo más bonito que tengo, mi felicidad tiene tu nombre y apellido. Te mando un besito en tu carita hermosa. Sonrie mi vida, que asi te ves más hermosa. Llévame a Cajamarca, yo te llevaré a mi tierra.</p>
+    <audio id="miAudio" src="cancion.mp3"></audio>
+</div>
+
+<script>
+    const btn = document.getElementById("btnMostrar");
+    const romantico = document.getElementById("romantico");
+    const audio = document.getElementById("miAudio");
+
+    btn.addEventListener("click", function() {
+        this.style.display = "none";
+        romantico.style.display = "block";
+        audio.play();
+        lanzarCorazones();
+    });
+
+    function lanzarCorazones() {
+        const cantidad = 40; 
+        for (let i = 0; i < cantidad; i++) {
+            let corazon = document.createElement("div");
+            corazon.classList.add("corazon");
+            corazon.style.left = Math.random() * 100 + "vw";
+            corazon.style.fontSize = (20 + Math.random() * 20) + "px";
+            corazon.style.animationDuration = (3 + Math.random() * 2) + "s";
+            corazon.innerHTML = "❤️";
+            document.body.appendChild(corazon);
+
+            setTimeout(() => {
+                corazon.remove();
+            }, 5000);
+        }
+    }
+</script>
+
+</body>
+</html>
